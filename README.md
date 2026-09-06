@@ -1,1 +1,68 @@
-# ARES-
+# Approach- keep the same while true->sense->decide->act shape everyone can read at a glance but quietly fix the three biggest real-world problems with a few small, easy-to-follow addition:1. average a few readings instead of trusting one- filters sensor noise with almost no extra code. 2.two threshold, not one- stops "flickering" between forward/stop right at the boundary. 3.alternate turn direction- so the robot doesn't get stuck turning the same way into the same corner forever.
+
+import time
+from collection import deque
+def read_raw_distance():
+"""single raw sensor read. Replace with real driver call."""
+  pass
+
+  def motor_forward():
+      pass
+      
+  def motor_stop():
+     pass
+     
+  def motor_turn(direction):
+  """direction: 1 = turn left, -1 = turn right;
+    pass
+
+  # parameters
+  DANGER_DISTANCE = 10
+  SAFE_DISTANCE = 20
+  LOOP_DELAY = 0.02
+  WINDOW_SIZE = 5
+
+ def obstacle_avoidance():
+ print("starting obstacle avoidance...")
+ reading = deque(maxlen=WINDOW_SIZE)
+ avoiding = False 
+ turn_direction = 1
+ 
+ # false means robot is not currently avoiding anything, driving forward normally
+ # true means robot is currently in avoid mode (stop/turning)
+
+ try:
+ while True:
+ raw = read_raw_distance()
+ if raw is not None:
+ reading.append(raw)
+ distance = sum(reading)/ len(reading) if readings else None
+
+
+ if avoiding:
+ if distance is None or distance > SAFE_DISTANCE:
+    avoiding = False
+else:
+if distance is not None and distance < DANGER_DISTANCE:
+     avoiding = True
+     turn_direction *= -1
+
+if not avoiding:
+  motor_forward()
+else:
+  motor_stop()
+  motor_turn(turn_direction)
+
+time.sleep(LOOP_DELAY)
+except KeyboardInterrupt:
+  motor_stop()
+  print("Stopped by user")
+
+  if _name_ == "_main_":
+     obstacle_avoidance()
+     
+
+ 
+ 
+ 
+ 
